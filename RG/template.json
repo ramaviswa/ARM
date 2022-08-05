@@ -2,25 +2,32 @@
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "rgName": {
-        "type": "string"
-      },
       "rgLocation": {
         "type": "string"
       },
       "rgtags":{
           "type": "object"
+      },
+      "storageaccountname":{
+        "type": "string"
       }
     },
     "variables": {},
     "resources": [
       {
-        "type": "Microsoft.Resources/resourceGroups",
+        "type" :"Microsoft.Storage/storageAccounts",
         "apiVersion": "2021-04-01",
-        "name": "[parameters('rgName')]",
+        "name": "[parameters('storageaccountname')]",
         "location": "[parameters('rgLocation')]",
         "tags" : "[parameters('rgtags')]",
-        "properties": {}
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "StorageV2",
+        "properties": {
+          "accessTier": "cool",
+          "allowBlobPublicAccess": true
+        }
       }
     ],
     "outputs": {}
