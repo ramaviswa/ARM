@@ -1,0 +1,19 @@
+{
+    
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetName" : {
+            "value" : "techurvent"
+        },
+        "vnetAddressPrefix" : {
+            "value" : ["10.1.0.0/16"]
+        },
+        "subnetName" : {
+            "value" : ["techursubnet1,techursubnet2"]
+        },
+        "subnetadress":{
+            "value": ["10.1.1.0/24","10.1.2.0/24"]
+        }
+    }
+}
