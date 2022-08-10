@@ -21,31 +21,27 @@
     },
     "resources" : [ 
         {
-        "type": "Microsoft.Network/virtualNetworks",
-        "apiVersion": "2021-08-01",
-        "Name" : "[parameters ('vnetName') ]",
-        "location" : "[parameters ('location')]",
-        "properties" : {
-            "addressSpace" : {
-                "addressPrefix" :[
-                    "[parameters('vnetAddressPrefix')]"]
-            },
-            "subnets" : [
-                {
-                "name" : "[parameters('subnetName') [copyIndex('subnetcopy')]]",
-                "properties" : {
-                    "addressPrefix": "[parameters('subnetadress') [copyIndex('subnetcopy')]]"
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2021-08-01",
+            "Name" : "[parameters ('vnetName') ]",
+            "location" : "[parameters ('location')]",
+            "properties" : {
+                "addressSpace" : {
+                    "addressPrefix" :"[parameters('vnetAddressPrefix')]"
                 },
-                "copy": {
-                     "name": "subnetcopy",
-                     "count": "[length(parameters('subnetName'))]"
+                "subnets" : [
+                    {
+                        "name" : "[parameters('subnetName') [copyIndex('subnetcopy')]]",
+                        "properties" : {
+                            "addressPrefix": ["[parameters('subnetadress') [copyIndex('subnetcopy')]]"]
+                        },
+                        "copy": {
+                            "name": "subnetcopy",
+                            "count": "[length(parameters('subnetName'))]"
+                        }
                     }
-                }
-            ]
-
-        }   
-    }
-
+                ]
+            }   
+        }
     ]
-
 }
