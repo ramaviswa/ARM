@@ -6,7 +6,7 @@
         "type": "string"
         },
         "vnetAddressPrefix" : {
-            "type" : "string"
+            "type" : "array"
         },
         "subnetName" : {
             "type" : "array"
