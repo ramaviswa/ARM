@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetName" : {
+            "type" : "string"
+
+        },
+        "vnetAddressPrefix" : {
+            "type" : "string"
+        },
+        "subnet1Name" : {
+            "type" : "string"
+        },
+        "subnet1Prefix" : {
+            "type" : "string"
+        },
+        "subnet2Name" : {
+            "type" : "string"
+        },
+        "subnet2Prefix" : {
+            "type" : "string"
+        },
+        "location" : {
+            "type" : "string",
+            "defaultvalue" : "[resourceGroups().location]"
+        }
+
+
+    },
+    "resources" : [
+        {
+        
+        }
+    ]
+}
+
+     
