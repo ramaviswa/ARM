@@ -7,13 +7,16 @@
             "value" : "techurvent"
         },
         "vnetAddressPrefix" : {
-            "value" : ["10.1.0.0/16"]
+            "value" : "10.1.0.0/16"
         },
         "subnetName" : {
-            "value" : ["techursubnet1,techursubnet2"]
+            "value" : ["techursubnet1","techursubnet2"]
         },
         "subnetadress":{
             "value": ["10.1.1.0/24","10.1.2.0/24"]
+        },
+        "location":{
+            "value": "Central Us"
         }
     }
 }

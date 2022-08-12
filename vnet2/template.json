@@ -6,7 +6,7 @@
         "type": "string"
         },
         "vnetAddressPrefix" : {
-            "type" : "array"
+            "type" : "string"
         },
         "subnetName" : {
             "type" : "array"
@@ -27,21 +27,21 @@
             "location" : "[parameters ('location')]",
             "properties" : {
                 "addressSpace" : {
-                    "addressPrefix" :"[parameters('vnetAddressPrefix')]"
+                    "addressPrefixes" :["[parameters('vnetAddressPrefix')]"]
                 },
-                "subnets" : [
+                "copy": [
                     {
-                        "name" : "[parameters('subnetName') [copyIndex('subnetcopy')]]",
-                        "properties" : {
-                            "addressPrefix": ["[parameters('subnetadress') [copyIndex('subnetcopy')]]"]
-                        },
-                        "copy": {
-                            "name": "subnetcopy",
-                            "count": "[length(parameters('subnetName'))]"
+                        "name": "subnets",
+                        "count": "[length(parameters('subnetName'))]",
+                        "input": {
+                            "name": "[parameters('subnetName')[copyIndex('subnets')]]",
+                            "properties": {
+                                "addressPrefix": "[parameters('subnetadress')[copyIndex('subnets')]]"
+                            }
                         }
                     }
                 ]
-            }   
+            }
         }
     ]
 }
