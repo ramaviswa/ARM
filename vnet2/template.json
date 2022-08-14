@@ -15,7 +15,9 @@
             "type" : "array"
         },
         "location" : {
-            "type" : "string"
+            "type" : "string",
+            "defaultValue" : "East Us",
+            "allowedValues" : ["Central Us","East Us"]
         }
 
     },
